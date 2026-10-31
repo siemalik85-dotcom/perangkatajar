@@ -9,11 +9,20 @@ import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged }
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 // --- FIREBASE INITIALIZATION ---
-const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+const defaultFirebaseConfig = {
+  apiKey: "AIzaSyAvb9EhZzHpElITw2N5grbkAA4DeNPlBVo",
+  authDomain: "perangkat-ajar-14453.firebaseapp.com",
+  projectId: "perangkat-ajar-14453",
+  storageBucket: "perangkat-ajar-14453.firebasestorage.app",
+  messagingSenderId: "1091039986511",
+  appId: "1:1091039986511:web:56c745ad463856958f3b3a"
+};
+
+const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : defaultFirebaseConfig;
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'perangkat-ajar-14453';
 
 // Helper untuk mengubah email menjadi ID dokumen yang aman
 const sanitizeEmailKey = (email) => {
